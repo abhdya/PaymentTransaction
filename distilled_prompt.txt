@@ -1,0 +1,24 @@
+You are an expert software engineer. Build a small Python project that demonstrates month-end reconciliation between a payments platform’s transaction ledger and a bank’s settlement ledger.
+
+Requirements:
+- Generate synthetic CSV test data yourself. The platform records transactions instantly; the bank settles 1–2 days later.
+- At month end, every platform transaction should have a matching settlement, but plant these four gap types:
+  1) A transaction that settles the following month
+  2) A rounding difference that only shows when summed (batch-level)
+  3) A duplicate entry in one dataset
+  4) A refund with no matching original transaction
+- State assumptions explicitly.
+- Implement reconciliation logic that:
+  - Loads/normalizes CSVs
+  - Detects duplicates and missing matches
+  - Matches primarily by transaction id, and supports batch-level settlement lines without per-tx ids
+  - Produces explainable outputs: CSV report + JSON summary + a readable markdown report
+- Provide a CLI with commands to generate data and run reconciliation, plus automated tests validating each planted gap type.
+- Provide a simple Streamlit app for an interactive demo and instructions to deploy it on Streamlit Community Cloud.
+
+Deliverables:
+- `src/` modules for data generation, reconciliation, and CLI
+- `tests/` with pytest
+- `app/streamlit_app.py`
+- `README.md`, `SUBMISSION.md`, and `requirements.txt`
+
